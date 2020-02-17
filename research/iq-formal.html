@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Formal characterization of IQs | Ontop</title>
+    <meta name="description" content="">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.a9a2931f.css" as="style"><link rel="preload" href="/assets/js/app.43555895.js" as="script"><link rel="preload" href="/assets/js/2.be9beaff.js" as="script"><link rel="preload" href="/assets/js/32.67d29017.js" as="script"><link rel="prefetch" href="/assets/js/10.ca87fcd3.js"><link rel="prefetch" href="/assets/js/11.3a432f7c.js"><link rel="prefetch" href="/assets/js/12.26b2fc57.js"><link rel="prefetch" href="/assets/js/13.6c4b86f3.js"><link rel="prefetch" href="/assets/js/14.4d0eb56c.js"><link rel="prefetch" href="/assets/js/15.fed99f30.js"><link rel="prefetch" href="/assets/js/16.3efc103c.js"><link rel="prefetch" href="/assets/js/17.e0c845bf.js"><link rel="prefetch" href="/assets/js/18.d0c0a5d4.js"><link rel="prefetch" href="/assets/js/19.b4f33f15.js"><link rel="prefetch" href="/assets/js/20.2062f500.js"><link rel="prefetch" href="/assets/js/21.955bef0b.js"><link rel="prefetch" href="/assets/js/22.9a2e3d09.js"><link rel="prefetch" href="/assets/js/23.8bfba8a5.js"><link rel="prefetch" href="/assets/js/24.21044c7a.js"><link rel="prefetch" href="/assets/js/25.c4872eac.js"><link rel="prefetch" href="/assets/js/26.af427b51.js"><link rel="prefetch" href="/assets/js/27.bdb46728.js"><link rel="prefetch" href="/assets/js/28.6a377ff8.js"><link rel="prefetch" href="/assets/js/29.a6ed850a.js"><link rel="prefetch" href="/assets/js/3.6b729cd7.js"><link rel="prefetch" href="/assets/js/30.e275955d.js"><link rel="prefetch" href="/assets/js/31.327b7ca1.js"><link rel="prefetch" href="/assets/js/33.21c6090d.js"><link rel="prefetch" href="/assets/js/34.23d51683.js"><link rel="prefetch" href="/assets/js/35.e6eae8dc.js"><link rel="prefetch" href="/assets/js/36.14a5e906.js"><link rel="prefetch" href="/assets/js/37.51a65c45.js"><link rel="prefetch" href="/assets/js/38.bbf02a88.js"><link rel="prefetch" href="/assets/js/39.c8861512.js"><link rel="prefetch" href="/assets/js/4.ef3b3695.js"><link rel="prefetch" href="/assets/js/40.2a5bcc58.js"><link rel="prefetch" href="/assets/js/41.1ff28af1.js"><link rel="prefetch" href="/assets/js/42.3c6bedc3.js"><link rel="prefetch" href="/assets/js/43.e492b2d3.js"><link rel="prefetch" href="/assets/js/44.b01fa55b.js"><link rel="prefetch" href="/assets/js/45.39d2c6ae.js"><link rel="prefetch" href="/assets/js/46.0f650651.js"><link rel="prefetch" href="/assets/js/47.f398681a.js"><link rel="prefetch" href="/assets/js/48.ffa9b5bd.js"><link rel="prefetch" href="/assets/js/49.97afb3b5.js"><link rel="prefetch" href="/assets/js/5.ab01df6a.js"><link rel="prefetch" href="/assets/js/50.a000ee00.js"><link rel="prefetch" href="/assets/js/51.1a50f37e.js"><link rel="prefetch" href="/assets/js/52.6982add6.js"><link rel="prefetch" href="/assets/js/53.4adfd13b.js"><link rel="prefetch" href="/assets/js/54.eb1c21d3.js"><link rel="prefetch" href="/assets/js/55.0d9ccc82.js"><link rel="prefetch" href="/assets/js/56.79c9a23a.js"><link rel="prefetch" href="/assets/js/6.c558a0eb.js"><link rel="prefetch" href="/assets/js/7.e9ff89be.js"><link rel="prefetch" href="/assets/js/8.4f7f4f8e.js"><link rel="prefetch" href="/assets/js/9.35c438ce.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.a9a2931f.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Ontop</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/guide/" class="nav-link">Guide</a></div><div class="nav-item"><a href="/tutorial/" class="nav-link">Tutorial</a></div><div class="nav-item"><a href="/community/" class="nav-link">Community</a></div><div class="nav-item"><a href="/research/" class="nav-link router-link-active">Research</a></div><div class="nav-item"><a href="/dev/" class="nav-link">Dev</a></div><div class="nav-item"><a href="/community/contributing/jobs/" class="nav-link">Jobs</a></div> <a href="https://github.com/ontop/ontop" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/guide/" class="nav-link">Guide</a></div><div class="nav-item"><a href="/tutorial/" class="nav-link">Tutorial</a></div><div class="nav-item"><a href="/community/" class="nav-link">Community</a></div><div class="nav-item"><a href="/research/" class="nav-link router-link-active">Research</a></div><div class="nav-item"><a href="/dev/" class="nav-link">Dev</a></div><div class="nav-item"><a href="/community/contributing/jobs/" class="nav-link">Jobs</a></div> <a href="https://github.com/ontop/ontop" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>Research</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/research/" class="sidebar-link">Research team</a></li><li><a href="/research/publications.html" class="sidebar-link">Publications</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Theory</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/research/notation.html" class="sidebar-link">Notation</a></li><li><a href="/research/iq-formal.html" class="active sidebar-link">Formal characterization of IQs</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/research/iq-formal.html#notation" class="sidebar-link">Notation</a></li><li class="sidebar-sub-header"><a href="/research/iq-formal.html#leaf-node-types" class="sidebar-link">Leaf node types</a></li><li class="sidebar-sub-header"><a href="/research/iq-formal.html#non-leaf-node-types" class="sidebar-link">Non-leaf node types</a></li></ul></li><li><a href="/research/optimization.html" class="sidebar-link">Intermediate query optimization</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="formal-characterization-of-iqs"><a href="#formal-characterization-of-iqs" class="header-anchor">#</a> Formal characterization of IQs</h1> <div class="custom-block warning"><p class="custom-block-title">WARNING</p> <p>TODO: CHECK/UPDATE (2 years old and formatted in AsciiDocs)</p></div> <p>This section aims at providing a more precise characterization of an <em>intermediate query</em> (<em>IQ</em> in what follows),
+which is the main query representation format used internally in Ontop.</p> <p>An IQ is a standard (rooted and ordered) tree representation of an algebraic query expression.
+More exactly,
+for each node N of a well-formed IQ Q,
+the maximal subtree or Q rooted in N represents a valid algebraic expression.</p> <p>In order to give a more precise characterization of this algebra,
+we will rely on its similarity with Relational Algebra (<em>RA</em> in what follows),
+more exactly the select/project/join/rename/union RA with named attributes (and no duplicate attribute),
+extended with additional operators supported by SQL DBMS (and relevant for Ontop's setting).
+These additional operators are:</p> <ul><li><p>left outer join (which corresponds to the SPARQL OPTIONAL operator),
+and</p></li> <li><p>extended projection</p></li></ul> <div class="custom-block tip"><p class="custom-block-title">NOTE</p> <p>As of now, difference is not supported.</p></div> <p>For readability,
+some similarities with the SPARQL language will also be (informally) higlighted.</p> <p>NOTE: This is only one possible way of characterizing the meaning of an IQ.
+Other options would be for instance relying on (a customized version of) the SPARQL algebra,
+or defining from scratch a full-fledged semantic.</p> <p>link:notation[The first section] introduces some notational conventions,
+whereas the following ones present the different types of nodes which may appear in an IQ,
+and how they relate to RA operands and operators.
+In order to simplify notation,
+their interpretation is first given in terms of set semantics (which is also the standard interpretation of RA).</p> <p>The extension to bag semantics has specific implications in an OBDA setting,
+and is discussed in link:bagSemantics[a dedicated Section].</p> <h2 id="notation"><a href="#notation" class="header-anchor">#</a> Notation</h2> <h3 id="interpretation-of-algebraic-expressions"><a href="#interpretation-of-algebraic-expressions" class="header-anchor">#</a> Interpretation of algebraic expressions</h3> <p>We assume the following mutually disjoint sets:</p> <ul><li><p>a countably infinite domain D being queried,</p></li> <li><p>a countably infinite set V of variables names (similar to SPARQL variables,
+or to a lesser extent to RA attribute names).</p></li> <li><p>a finite set P of predicates,
+and</p></li> <li><p>For each p ∈ P with arity n &gt; 0,
+a set {p_1, .., p_n} of base attribute names.</p></li></ul> <p>A database instance will be viewed as a total function I over P,
+which,
+to each element p of its domain,
+associates a set I(p) of partial functions from {p_1, .., p_n} to D.</p> <p>The <em>signature</em> sig(M) of an algebraic query expression M is the set of its base operands,
+and it is assumed that for any well-formed M,
+sig(M) ⊆ P holds.</p> <p>Given a database instance I over P,
+the <em>interpretation</em> ||M|| of a well-formed algebraic expression M is built inductively out of all I(p) such that p ∈ sig(M),
+by application of algebraic operators.
+To each element of its domain,
+||.|| associates a (possibly empty) set of partial functions from a unique subset var(M) of V to D.
+var(M) will be called the <em>projected variables</em> of M,
+and does not depend on ||.||,
+but only on M.</p> <h3 id="interpretation-of-iq-nodes"><a href="#interpretation-of-iq-nodes" class="header-anchor">#</a> Interpretation of IQ nodes</h3> <p>If Q is a well-formed IQ,
+then nodes(Q) will designate its nodes.
+And by extension,
+if N ∈ nodes(Q),
+then sig(N) (resp. ||N|| and var(N)) will designate the signature (resp. the interpretation and the projected variables) of the algebraic expression represented by (the maximal subtree of Q rooted in) N.</p> <h3 id="boolean-expressions"><a href="#boolean-expressions" class="header-anchor">#</a> Boolean expressions</h3> <p>A <em>boolean expression</em> in what follows designates a quantifier-free first-order formula,
+with variables in V,
+constants in D and predicates among the ones listed link:[in the dedicated section].</p> <p>For instance,
+x ≠ y,
+(x ≥ 2) ∨ (x = z) and IsNotNull(x) are valid expressions.</p> <p>Given a boolean expression φ and a partial function f : V ↦ D,
+the formula φ[f] is obtained by replacing each variable x appearing in φ by f(x) if defined,
+and by NULL otherwise.
+Then the valuation val(φ[f]) of φ[f] corresponds to the one expected in SQL,
+and operators like &quot;=&quot; or ≥ are polymorphic.
+For instance,
+for any d ∈ D,
+val(d ≤ d) = TRUE,
+val(d ≠= d) = FALSE,
+val(NULL = d) = UNKNOWN,
+val(NULL ≤ d) = UNKNOWN,
+etc.,</p> <p>These boolean expressions are explicit RA selection conditions.
+Implicit selection conditions (exclusively equality between variables and/or constant) may also be expressed,
+for instance by joining two algebraic expressions with shared variables (natural join).</p> <h2 id="leaf-node-types"><a href="#leaf-node-types" class="header-anchor">#</a> Leaf node types</h2> <h3 id="data-node"><a href="#data-node" class="header-anchor">#</a> Data node</h3> <p>Data nodes are prototypical leaf nodes of IQs.
+Intuitively,
+a data node is similar to a SPARQL triple pattern,
+but extended to n-uples.</p> <p>Equivalently,
+a data node may represent the application to some p ∈ P of a (possibly trivial) selection (σ in RA),
+followed by a variable renaming (ρ in RA).</p> <p>Internally,
+a data node N is characterized (using logical notation) with an expression of the form p(v~1~, .., v~n~),
+where p ∈ P,
+and each v~i~ is either a constant or a variable,
+i.e. v~i~ ∈ D ∪ V.
+In addition,
+we have var(N) = {v~1~, .., v~n~} ∩ V.</p> <p>Constants and repeated variable names express selection in the expected way.</p> <p>For instance,
+if N is characterized by p(x,x),
+then it represents the RA expression ρ~[x/p1,x/p2]~ (σ~[p1=p2]~ p).</p> <p>Therefore,
+if I(p) = { {p1 ↦ 1, p2 ↦ 2}, {p1 ↦ 3, p2 ↦ 3} },
+then ||N|| = { {p1 ↦ 3, p2 ↦ 3} } will hold.</p> <div class="custom-block tip"><p class="custom-block-title">Second order queries</p> <p>SPARQL triple patterns allow for querying over the name of an RDF property,
+i.e. the name of a binary predicate.
+In an IQ,
+the data node corresponding to such a triple pattern is characterized by a ternary predicate with a meaningless predicate name (currently &quot;triple&quot;),
+and the property name variable as first argument.
+For instance,
+a data node encoding the SPARQL triple pattern ?s ?p ?o (where ?p stands for RDF property names) will be characterized by the expression triple(p,s,o).</p> <p>This mechanism may be extended in future versions to all predicates.
+In other words,
+P may be reduced to a set of one predicate per arity (&quot;pair&quot;, &quot;triple, &quot;quadruple&quot;, etc),
+with the current (n-1 ary) predicate names as first argument.</p></div> <div class="custom-block tip"><p class="custom-block-title">Intensional VS extensional data nodes</p> <p>Todo</p></div> <h3 id="empty-node"><a href="#empty-node" class="header-anchor">#</a> Empty node</h3> <p>An empty node E can be viewed as a specific kind of data node (whether it should be considered as intensional or extensional is not important).
+The evaluation of the subquery rooted in E will always be (similar to) the RA n-ary empty relation,
+with n ≥ 0.</p> <p>In other words,
+for any database instance,
+||E|| = {} holds (although var(E) may be nonempty).</p> <p>Alternatively,
+if var(E) = {v~1~, .., v~n~},
+assuming some p ∈ P with arity n,
+(the subtree whose only node is) E can be viewed as representing the RA expression ρ~[v1/p1,..,vn/pn]~ (σ~FALSE~ p).</p> <p>The behavior of ||E|| as an operand is similar to the behavior of an empty relation in RA.
+In particular (see link:nonLeafNodes[the dedicated sections] below for the definitions of the corresponding operators):</p> <ul><li>(Left and right) identity element for union: ||E UNION M|| = ||M||,
+for any M s.t. var(M) = var(E)</li> <li>(Left and right) absorbing element for a natural join: ||E JOIN M|| = ||E||,
+for any M</li> <li>Left absorbing for left outer join,
+and right identity element if there is no join condition,
+or if the condition is met (right absorbing otherwise)</li> <li>Fixpoint for selection.</li></ul> <h3 id="true-node"><a href="#true-node" class="header-anchor">#</a> True node</h3> <p>True nodes represent another limit case.
+The evaluation of the subquery rooted in a true node T will always be (similar to) the RA nonempty but 0-ary relation.
+Or in other words,
+var(T) = {},
+and for any database instance,
+||T|| = {f},
+where f has an empty domain.</p> <p>The behavior of ||T|| as an operand is in most cases similar to the behavior of its RA counterpart.
+In particular (see link:nonLeafNodes[the dedicated sections] below for the definitions of the corresponding operators):</p> <ul><li>(Left and right) identity element for a natural join: ||T JOIN M|| = ||M||,
+for any M</li> <li>||T UNION T|| = ||T|| (see the section about link:bagSemantics[bag semantics] for the treatment of cardinalities in this specific case).</li></ul> <p>As expected,
+T is also the right identity element for the left outer join operator:</p> <ul><li>||M LEFT JOIN T|| = ||M||,
+for any M.</li></ul> <p>In the case where T is the left operand,
+we have:</p> <ul><li>||T LEFT JOIN M|| = ||M||,
+if ||M|| ≠ {}</li> <li>||T LEFT JOIN M|| = ||T|| otherwise.</li></ul> <p>Note that in RA,
+because the left outer join operator is traditionally defined in terms of join,
+projection,
+union and difference,
+these two queries would be syntactically invalid (implying a difference and a union of two relations with different arities).
+In IQs on the other hand,
+the left outer join is viewed as a primitive operator.</p> <h2 id="non-leaf-node-types"><a href="#non-leaf-node-types" class="header-anchor">#</a> Non-leaf node types</h2> <h3 id="inner-join-node"><a href="#inner-join-node" class="header-anchor">#</a> Inner join node</h3> <p>An inner join node N represents the n-ary natural join of the evaluations of its children nodes,
+Explicit joining conditions can also be attached to it,
+in the form of a boolean expression φ~N~,
+as defined above.</p> <p>It can be defined almost identically to its SPARQL counterpart.
+First,
+for any two partial functions f and g from V to D,
+let f ~ g hold iff for all x ∈ dom(f) ∩ dom(g),
+we have f(x) = g(x).</p> <p>Then algebraic operation represented by an inner join node with explicit joining condition φ,
+denoted with JOIN~φ~,
+is defined by:</p> <p>Then ||N_1 JOIN~φ~ N_2|| = { f ∪ g | (f,g) ∈ ||N1|| × ||N2|| and f ~ g holds and val(φ[f ∪ g]) = TRUE},
+and V(N_1 JOIN N_2) = v(N1) ∪ v(N2).</p> <p>If there is no explicit condition attached to an inner join node,
+then it represents the operation N1 JOIN~1=1~ N2,
+abbreviated as  N1 JOIN N2.</p> <h3 id="left-join-node"><a href="#left-join-node" class="header-anchor">#</a> Left join node</h3> <p>A left join node represents the RA binary natural left outer join (or SPARQL OPTIONAL) of the evaluations of its children nodes.
+The left and right children nodes respectively stand for the left and right part of the join.</p> <p>Explicit joining conditions may also be attached to it.</p> <p>As for join nodes,
+this algebraic operation can be defined similarly to its SPARQL counterpart.
+An inner join node with explicit joining condition φ,
+represents the algebraic operation INNER JOIN~φ~,
+defined by:</p> <p>||N_1 INNER JOIN~φ~ N_2|| = ||N1 JOIN N2|| ∪ { f &amp; isin ||N1|| | for all (g) ∈ ||N2||,
+f ~ g or val(φ[f ∪ g]) = TRUE does not hold}.</p> <p>As for join nodes,
+if there is no explicit condition attached to an inner join node,
+then it represents the operation N1 INNER JOIN~1=1~ N2,
+abbreviated as  N1 INNER JOIN N2.</p> <h3 id="union-node"><a href="#union-node" class="header-anchor">#</a> Union node</h3> <h3 id="construction-node"><a href="#construction-node" class="header-anchor">#</a> Construction node</h3> <p>A construction represents a RA extended projection,
+followed by an attribute renaming.</p> <p>&quot;Extended&quot; projection means here that some additional operations on the values of the projected attributes can be expressed,
+prototypically string concatenation to create URIs out of data values (but also for instance arithmetic operations).</p> <p>Attribute renaming is always the second operation,
+i.e. it is alway performed on the output of the (extended) projection.</p> <div class="custom-block tip"><p class="custom-block-title">optional projection and renaming</p> <p>Both operations (extended projection and renaming) are in a sense optional,
+in that the projection with all selected attributes (and no non-trivial additional operation) is the identity operator,
+and so is renaming with empty substituion.
+So in practice,
+a construction node may encode one of these operations.</p></div></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/ontop/ontop-website/edit/master/research/iq-formal.md" target="_blank" rel="noopener noreferrer">Edit this page</a> <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">9/4/2019, 3:26:45 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/research/notation.html" class="prev">Notation</a></span> <span class="next"><a href="/research/optimization.html">Intermediate query optimization</a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.43555895.js" defer></script><script src="/assets/js/2.be9beaff.js" defer></script><script src="/assets/js/32.67d29017.js" defer></script>
+  </body>
+</html>

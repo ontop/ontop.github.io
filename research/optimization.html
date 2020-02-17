@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Intermediate query optimization | Ontop</title>
+    <meta name="description" content="">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.a9a2931f.css" as="style"><link rel="preload" href="/assets/js/app.43555895.js" as="script"><link rel="preload" href="/assets/js/2.be9beaff.js" as="script"><link rel="preload" href="/assets/js/34.23d51683.js" as="script"><link rel="prefetch" href="/assets/js/10.ca87fcd3.js"><link rel="prefetch" href="/assets/js/11.3a432f7c.js"><link rel="prefetch" href="/assets/js/12.26b2fc57.js"><link rel="prefetch" href="/assets/js/13.6c4b86f3.js"><link rel="prefetch" href="/assets/js/14.4d0eb56c.js"><link rel="prefetch" href="/assets/js/15.fed99f30.js"><link rel="prefetch" href="/assets/js/16.3efc103c.js"><link rel="prefetch" href="/assets/js/17.e0c845bf.js"><link rel="prefetch" href="/assets/js/18.d0c0a5d4.js"><link rel="prefetch" href="/assets/js/19.b4f33f15.js"><link rel="prefetch" href="/assets/js/20.2062f500.js"><link rel="prefetch" href="/assets/js/21.955bef0b.js"><link rel="prefetch" href="/assets/js/22.9a2e3d09.js"><link rel="prefetch" href="/assets/js/23.8bfba8a5.js"><link rel="prefetch" href="/assets/js/24.21044c7a.js"><link rel="prefetch" href="/assets/js/25.c4872eac.js"><link rel="prefetch" href="/assets/js/26.af427b51.js"><link rel="prefetch" href="/assets/js/27.bdb46728.js"><link rel="prefetch" href="/assets/js/28.6a377ff8.js"><link rel="prefetch" href="/assets/js/29.a6ed850a.js"><link rel="prefetch" href="/assets/js/3.6b729cd7.js"><link rel="prefetch" href="/assets/js/30.e275955d.js"><link rel="prefetch" href="/assets/js/31.327b7ca1.js"><link rel="prefetch" href="/assets/js/32.67d29017.js"><link rel="prefetch" href="/assets/js/33.21c6090d.js"><link rel="prefetch" href="/assets/js/35.e6eae8dc.js"><link rel="prefetch" href="/assets/js/36.14a5e906.js"><link rel="prefetch" href="/assets/js/37.51a65c45.js"><link rel="prefetch" href="/assets/js/38.bbf02a88.js"><link rel="prefetch" href="/assets/js/39.c8861512.js"><link rel="prefetch" href="/assets/js/4.ef3b3695.js"><link rel="prefetch" href="/assets/js/40.2a5bcc58.js"><link rel="prefetch" href="/assets/js/41.1ff28af1.js"><link rel="prefetch" href="/assets/js/42.3c6bedc3.js"><link rel="prefetch" href="/assets/js/43.e492b2d3.js"><link rel="prefetch" href="/assets/js/44.b01fa55b.js"><link rel="prefetch" href="/assets/js/45.39d2c6ae.js"><link rel="prefetch" href="/assets/js/46.0f650651.js"><link rel="prefetch" href="/assets/js/47.f398681a.js"><link rel="prefetch" href="/assets/js/48.ffa9b5bd.js"><link rel="prefetch" href="/assets/js/49.97afb3b5.js"><link rel="prefetch" href="/assets/js/5.ab01df6a.js"><link rel="prefetch" href="/assets/js/50.a000ee00.js"><link rel="prefetch" href="/assets/js/51.1a50f37e.js"><link rel="prefetch" href="/assets/js/52.6982add6.js"><link rel="prefetch" href="/assets/js/53.4adfd13b.js"><link rel="prefetch" href="/assets/js/54.eb1c21d3.js"><link rel="prefetch" href="/assets/js/55.0d9ccc82.js"><link rel="prefetch" href="/assets/js/56.79c9a23a.js"><link rel="prefetch" href="/assets/js/6.c558a0eb.js"><link rel="prefetch" href="/assets/js/7.e9ff89be.js"><link rel="prefetch" href="/assets/js/8.4f7f4f8e.js"><link rel="prefetch" href="/assets/js/9.35c438ce.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.a9a2931f.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Ontop</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/guide/" class="nav-link">Guide</a></div><div class="nav-item"><a href="/tutorial/" class="nav-link">Tutorial</a></div><div class="nav-item"><a href="/community/" class="nav-link">Community</a></div><div class="nav-item"><a href="/research/" class="nav-link router-link-active">Research</a></div><div class="nav-item"><a href="/dev/" class="nav-link">Dev</a></div><div class="nav-item"><a href="/community/contributing/jobs/" class="nav-link">Jobs</a></div> <a href="https://github.com/ontop/ontop" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/guide/" class="nav-link">Guide</a></div><div class="nav-item"><a href="/tutorial/" class="nav-link">Tutorial</a></div><div class="nav-item"><a href="/community/" class="nav-link">Community</a></div><div class="nav-item"><a href="/research/" class="nav-link router-link-active">Research</a></div><div class="nav-item"><a href="/dev/" class="nav-link">Dev</a></div><div class="nav-item"><a href="/community/contributing/jobs/" class="nav-link">Jobs</a></div> <a href="https://github.com/ontop/ontop" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>Research</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/research/" class="sidebar-link">Research team</a></li><li><a href="/research/publications.html" class="sidebar-link">Publications</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Theory</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/research/notation.html" class="sidebar-link">Notation</a></li><li><a href="/research/iq-formal.html" class="sidebar-link">Formal characterization of IQs</a></li><li><a href="/research/optimization.html" class="active sidebar-link">Intermediate query optimization</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/research/optimization.html#notation" class="sidebar-link">Notation</a></li><li class="sidebar-sub-header"><a href="/research/optimization.html#propagating-down-boolean-expressions" class="sidebar-link">Propagating down boolean expressions</a></li></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="intermediate-query-optimization"><a href="#intermediate-query-optimization" class="header-anchor">#</a> Intermediate query optimization</h1> <div class="custom-block warning"><p class="custom-block-title">WARNING</p> <p>TODO: UPDATE AND CHECK (2 years old, imported from AsciiDocs)</p></div> <p>This section provides a high level description of different transformations which may be applied to <a href="/dev/iq">Intermediate Queries</a> (<em>IQs</em> in what follows) for optimization purposes.</p> <h2 id="notation"><a href="#notation" class="header-anchor">#</a> Notation</h2> <p>The different types of nodes of an IQ are presented <a href="/dev/iq#query-nodes">in the dedicated section</a>.
+The following notation will also be use in the current document.</p> <h3 id="sub-trees"><a href="#sub-trees" class="header-anchor">#</a> (Sub)trees</h3> <p>If s is a tree,
+then root(s) will designate its root.</p> <p>If n is a node in an IQ Q,
+then children~Q~(n) (resp. children(n) when Q is obvious from the context) will designate the immediate children of n in Q,
+and subtree~Q~(n) (resp. subtree(n)) the maximal subtree of Q rooted in n.
+In addition,
+a &quot;subtree of Q&quot; will be understood as a maximal subtree of Q rooted in some node of Q.
+Finally,
+childSubtrees~Q~(n) (resp. childSubtrees(n)) will stand for {subtree~Q~(c) | c ∈ children~Q~(n)}</p> <h3 id="projected-variables"><a href="#projected-variables" class="header-anchor">#</a> Projected variables</h3> <p>If s is a subtree in an IQ,
+then var(s) will designate the <em>variables projected out by s</em>,
+defined inductively as follows:</p> <ul><li><p>If root(s) explicitly projects out variables (construction node,
+union node,
+data node or empty node),
+then var(s) is the set of such variables.</p></li> <li><p>Otherwise,
+var(s) = ⋃ ~s∈childSubtrees(n)~ var(s)</p></li></ul> <p>If e is an (explicit) join or filter condition,
+then var(e) will designate the variables appearing in e.</p> <h2 id="propagating-down-boolean-expressions"><a href="#propagating-down-boolean-expressions" class="header-anchor">#</a> Propagating down boolean expressions</h2> <p>This optimization is used for (some) NoSQL underlying DBMS.
+It consists in transforming an input IQ into an equivalent one such that,
+whenever possible,
+selections precede other algebraic operations.
+Or in other words,
+it consists in propagating (explicit) boolean expressions down the algebraic tree.</p> <p>Three types of IQ nodes support boolean expressions,
+namely:</p> <ul><li>filter nodes,</li> <li>inner join nodes, and</li> <li>left join nodes</li></ul> <p>For each node n of one of these types,
+if n has an explicit boolean expression e attached to it,
+then e is put into DNF,
+and each resulting conjunct may be propagated down independently.
+For instance,
+n may be a filter node,
+and e the expression (x &gt; y) ∧ (y ≠ z).
+Then (x &gt; y) and (y ≠ z) may both be propagated down,
+independently from each other.
+If n is a node of one of the three types just mentioned,
+then bool(n) will designate the set of such conjuncts.</p> <h3 id="propagation-decision-and-recipient-selection"><a href="#propagation-decision-and-recipient-selection" class="header-anchor">#</a> Propagation decision and recipient selection</h3> <p>Propagation decisions are primarily taken based on a comparison between:</p> <ul><li>the variables var(e) present in the conjunct e being propagated down,
+and</li> <li>the variables var(s) projected out by each candidate subtree s for the propagation of e.</li></ul> <h4 id="default-case-inner-join-of-filter-provider-node"><a href="#default-case-inner-join-of-filter-provider-node" class="header-anchor">#</a> Default case (inner join of filter provider node)</h4> <p>Let e ∈ bool(n).
+The default rule to decide whether e can be propagated down from n is the following:
+for each s ∈ childSubtrees(n),
+if var(e) ⊆ var(s),
+then e can be propagated down to s.</p> <p>An expression e being propagated down a subtree s also needs (a) new recipient node(s) to support it.
+The recipients selection procedure is the following:</p> <ul><li><p>if root(s) is neither a union node,
+construction node or left join node,
+then it is the (only) recipient of e in s.</p></li> <li><p>Otherwise,
+each s' ∈ childSubtrees(root(s)) recursively becomes a new candidate subtree for propagation.
+If there no s' ∈ childSubtrees(root(s)) to which e can be propagated down,
+then root(s) is the (only) recipient of e in s.
+Note that in a valid IQ,
+if s is a construction or union node,
+then var(s) ⊆ var(s') must hold for each s' ∈ childSubtrees(root(s)),
+therefore var(e) ⊆ var(s') holds by transitivity,
+such that root(s) cannot be the recipient for e in s.
+But it may be the case if s is a left join node.</p></li></ul> <p>Finally,
+if a recipient node r for e in s (or s') does not natively supports non-conditional boolean expressions,
+i.e. if r is neither a filter nor an inner join node,
+then a new filter node is created as the (immediate) parent of r,
+in order to support e.
+Alternatively (as a form of syntactic sugar),
+if the node n initially providing e is the immediate parent of r,
+then this new filter node is not needed,
+and e can remain attached to n,
+which in this case plays the role of &quot;pseudo-recipient&quot; of e in s.</p> <p>Note that if n is the pseudo-recipient of e in s,
+then from the above selection procedure,
+root(s) must be a data node,
+empty node,
+true node,
+or a left join node with no child accepting e,
+which in all cases guarantees that e cannot be further propagated down s.</p> <h4 id="specific-case-left-join-provider-node"><a href="#specific-case-left-join-provider-node" class="header-anchor">#</a> Specific case (left join provider node)</h4> <p>The propagation decision and recipient selection procedures are identical for a boolean conjunct e provided by a left join node n,
+but with an exception:
+e may only be propagated down the subtree rooted in the right child of n.
+Indeed,
+if e was propagated down the left subtree,
+an additional selection would be added to the algebraic expression represented by that left branch,
+violating the semantics of conditions attached to a left join (see link:intermediateQuery_detailed.adoc#leftjoinNode[the dedicated section] for an explanation).</p> <h3 id="duplication-decision"><a href="#duplication-decision" class="header-anchor">#</a> Duplication decision</h3> <p>Let e ∈ bool(n) for some node n in an IQ Q.
+And let us assume that there is at least one s ∈ childSubtrees(n) to which e can be propagated,
+and that in each such s,
+a proper recipient node for e,
+different from n,
+has been found (or in other words that n is not the pseudo-recipient of e for any such s).</p> <p>Then the decision still needs to be taken whether e should remain attached to n,
+(i.e. be duplicated down) or not (i.e. be strictly pushed down).</p> <h4 id="default-case"><a href="#default-case" class="header-anchor">#</a> Default case</h4> <p>By default,
+an attempt is made to strictly push down e if it can be propagated down to at least one s ∈ childSubtrees(n).
+So in the default case,
+and provided n is not a pseudo-recipient for e in any s,
+e will not remain attached to n.</p> <h4 id="specific-case-left-join-rooted-candidate-subtree"><a href="#specific-case-left-join-rooted-candidate-subtree" class="header-anchor">#</a> Specific case (left-join-rooted candidate subtree)</h4> <p>If s is a candidate subtree for the propagation of e,
+and if a recipient node r in s has been found such that the path in Q from the provider node n of e to r comprises a left join node j and the right child j' of j,
+then e will remain attached to the provider node n,
+i.e. e will be duplicated down,
+instead of strictly pushed down.</p> <p>This prevents an alteration of the semantic of the IQ.
+Consider for instance the following example (where r = j' for simplicity).</p> <div class="custom-block tip"><p class="custom-block-title">NOTE</p> <p>Let:</p> <ul><li>Q1 be a well-formed IQ</li> <li>n1 be a filter node,
+n1 ∈ Q1,
+and bool(n1) = {e},
+where e is the expression x &lt; 1</li> <li>j1 be a left join node with (explicit) joining condition x ≤ y,
+and such that children(n1) = {j1}</li> <li>l1 be the left child of j1,
+with var(subtree(l1)) = {y}</li> <li>r1 be a filter node and the right child of j1,
+with var(subtree(r1)) = {x}</li></ul> <p>Then r1 is a recipient for e.</p> <p>Now consider the query Q2 identical to Q1,
+where n2 (resp. j2, r2, etc.) is the counterpart of n1 (resp. j1, r1, etc.),
+but such that e has been pushed down to r2 (and therefore is not attached to n2 anymore).
+And let us assume a database instance defining an evaluation function ||.||,
+such that ||l1|| =  { {y ↦ 2} } and ||r1|| = { {x ↦ 1} }.</p> <p>Then ||j1|| = { {x ↦ 1, y ↦ 2} },
+and ||n1|| = { {} }.</p> <p>But ||l2|| = { {y ↦ 2} } and ||r2|| = { {} } must also hold,
+therefore ||j2|| = { {y ↦ 2} } and ||n2|| = { {y ↦ 2} },
+such that ||n1|| ≠ ||n2||.</p></div></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/ontop/ontop-website/edit/master/research/optimization.md" target="_blank" rel="noopener noreferrer">Edit this page</a> <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">9/4/2019, 3:26:45 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/research/iq-formal.html" class="prev">Formal characterization of IQs</a></span> <!----></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.43555895.js" defer></script><script src="/assets/js/2.be9beaff.js" defer></script><script src="/assets/js/34.23d51683.js" defer></script>
+  </body>
+</html>
